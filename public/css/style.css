@@ -35,6 +35,86 @@ header{
   background-color: white;
   width: 1024px;
   margin: auto;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 47px;
+  padding-right: 47px;
+}
+
+
+.pokeSquare{
+  height: 238px;
+  width: 216px;
+  margin-bottom: 60px;
+  padding-left: 13px;
+  padding-right: 13px;
+  background-color: #F2F1F1;
+  border-radius: 10px;
+}
+
+.typeContainer{
+  width: 100%;
+  overflow: hidden;
+}
+
+.typeRight{
+  border-radius: 10px 0px 10px 0px;
+}
+
+.typeLeft{
+  border-radius: 0px 10px 0px 10px;
+}
+
+.bug{
+  background-color: #A0DA5E;
+  width: 108px;
+  height: 22px;
+  float: left;
+  text-align: center;
+}
+
+.grass{
+  background-color: #A0DA5E;
+  width: 108px;
+  height: 22px;
+  float: left;
+  text-align: center;
+}
+
+.poison{
+  background-color: #BE93E7;
+  width: 108px;
+  height: 22px;
+  float: left;
+  text-align: center;
+}
+
+.fire{
+  background-color: #E85B0E;
+  width: 108px;
+  height: 22px;
+  float: left;
+  text-align: center;
+}
+
+.water{
+  background-color: #4A90E2;
+  width: 108px;
+  height: 22px;
+  float: left;
+  text-align: center;
+}
+
+.flying{
+  background-color: #D8D8D8;
+  width: 108px;
+  height: 22px;
+  float: left;
+  text-align: center;
+}
+
+.normal{
+  background-color: #D8D8D8;
+  width: 108px;
+  height: 22px;
+  float: left;
+  text-align: center;
 }

@@ -17,17 +17,19 @@
   <script type="text/x-handlebars" id="index">
     <div class="container">
       <h1 {{action 'showPokemon'}}>POKÉDEX</h1>
-      <ul>
-        <li>{{model}}</li>
-        {{#each item in model}}
-          <li>item</li>
-          <li>{{item.pkdx_id}}</li>
-          <li>{{item.name}}</li>
-          {{#each item.types as |type|}}
-            <li>{{type.name}}</li>
-          {{/each}}
-        {{/each}}
-      </ul>
+      {{#each item in model}}
+        <div class="pokeSquare">
+          {{item.pkdx_id}}
+          {{item.name}}
+          <div class="typeContainer">
+            {{#each item.types as |type|}}
+              <div {{bind-attr class="type.name"}}>
+                <li>{{type.name}}</li>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      {{/each}}
     </div>
   </script>
 
