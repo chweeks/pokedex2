@@ -3,14 +3,17 @@
 <head>
   <meta charset="utf-8">
   <title>Ember Starter Kit</title>
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/public/css/normalize.css">
+  <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
   <script type="text/x-handlebars">
-    <h2>Welcome to Ember.js</h2>
-
-    {{outlet}}
+    <header><img src="/public/images/pokeball.png"/>Pokédex</header>
+    <div class="container">
+      {{outlet}}
+    </div>
   </script>
 
   <script type="text/x-handlebars" id="index">

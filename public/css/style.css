@@ -1,0 +1,17 @@
+/* Put your CSS here */
+
+body{
+  background: url("/public/images/Background_2.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+}
+
+header{
+  background-color: #1f2532;
+  margin-bottom: 0px;
+  height: 50px;
+  color: white;
+}
