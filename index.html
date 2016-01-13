@@ -21,9 +21,9 @@
         {{model}}
         {{#each model as |item|}}
           <div class="pokeSquare">
-            #00{{item.pkdx_id}}
+            #{{item.pkdx_id}}
             {{item.name}}
-            <img class="image" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png">
+            <img class="image" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/{{unbound item.pkdx_id}}.png">
             <div class="typeContainer">
               {{#each item.types as |type|}}
                 <div class="{{type.name}}">
