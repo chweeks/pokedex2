@@ -2,6 +2,7 @@ App = Ember.Application.create();
 
 App.Router.map(function() {
   this.route('index', { path: '/' });
+  this.route("pokemon", { path: "/:pkdx_id" });
 });
 
 App.IndexRoute = Ember.Route.extend({

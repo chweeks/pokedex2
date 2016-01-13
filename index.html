@@ -23,7 +23,9 @@
           <div class="pokeSquare">
             #{{item.pkdx_id}}
             {{item.name}}
-            <img class="image" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/{{unbound item.pkdx_id}}.png">
+            {{#link-to "pokemon" item}}
+              <img class="image" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/{{unbound item.pkdx_id}}.png">
+            {{/link-to}}
             <div class="typeContainer">
               <div class="{{item.types.[0].name}} typeLeft">
                 {{item.types.[0].name}}
