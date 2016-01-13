@@ -5,6 +5,10 @@ App.Router.map(function() {
   this.route("pokemon", { path: "/:pkdx_id" });
 });
 
+App.PokemonRoute = Ember.Route.extend({
+
+});
+
 App.IndexRoute = Ember.Route.extend({
 
   actions: {

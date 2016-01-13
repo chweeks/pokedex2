@@ -11,34 +11,59 @@
 <body>
   <script type="text/x-handlebars">
     <header><div class="header"><img src="/public/images/pokeball.png"/>POKÉDEX</div></header>
-    {{outlet}}
+    <div class="container">
+      {{outlet}}
+    </div>
   </script>
 
-  <script type="text/x-handlebars" data-template-name='index'>
-    <div class="container">
-      <h1 {{action 'showPokemon'}} class="title">POKÉDEX</h1>
-      <div class="pokemonContainer">
-        {{model}}
-        {{#each model as |item|}}
-          <div class="pokeSquare">
-            #{{item.pkdx_id}}
-            {{item.name}}
-            {{#link-to "pokemon" item}}
-              <img class="image" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/{{unbound item.pkdx_id}}.png">
-            {{/link-to}}
-            <div class="typeContainer">
-              <div class="{{item.types.[0].name}} typeLeft">
-                {{item.types.[0].name}}
-              </div>
-              <div class="{{item.types.[1].name}} typeRight">
-                {{item.types.[1].name}}
-              </div>
+  <script type="text/x-handlebars" data-template-name="index">
+    <h1 {{action 'showPokemon'}} class="title">POKÉDEX</h1>
+    <div class="pokemonContainer">
+      {{model}}
+      {{#each model as |item|}}
+        <div class="pokeSquare">
+          #{{item.pkdx_id}}
+          {{item.name}}
+          {{#link-to "pokemon" item}}
+            <img class="image" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/{{unbound item.pkdx_id}}.png">
+          {{/link-to}}
+          <div class="typeContainer">
+            <div class="{{item.types.[0].name}} typeLeft">
+              {{item.types.[0].name}}
+            </div>
+            <div class="{{item.types.[1].name}} typeRight">
+              {{item.types.[1].name}}
             </div>
           </div>
-        {{/each}}
-      </div>
-      <div class="load"><h4 class="buttonCentre">LOAD MORE</h4></div>
+        </div>
+      {{/each}}
     </div>
+    <div class="load"><h4 class="buttonCentre">LOAD MORE</h4></div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="pokemon">
+    <div class="navContainer">
+      <div class="leftNav"></div>
+      <div class="rightNav">
+        <h3 class="navTitle">{{model.name}}</h3>
+      </div>
+    </div>
+
+  <h1 class="pokemonName">
+    #{{model.pkdx_id}} {{model.name}}
+  </h1>
+  <div class="profile">
+    <div class="profileTypeContainer">
+      <img class="profileImage" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{unbound model.pkdx_id}}.png">
+      <div class="{{model.types.[0].name}} profileTypeLeft">
+        {{model.types.[0].name}}
+      </div>
+      <div class="{{model.types.[1].name}} profileTypeRight">
+        {{model.types.[1].name}}
+      </div>
+    </div>
+  </div>
+
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
