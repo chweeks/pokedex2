@@ -18,6 +18,7 @@
     <div class="container">
       <h1 {{action 'showPokemon'}} class="title">POKÉDEX</h1>
       <div class="pokemonContainer">
+        {{model}}
         {{#each model as |item|}}
           <div class="pokeSquare">
             #00{{item.pkdx_id}}
@@ -25,7 +26,7 @@
             <img class="image" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png">
             <div class="typeContainer">
               {{#each item.types as |type|}}
-                <div {{bind-attr class="type.name"}}>
+                <div class="{{type.name}}">
                   {{type.name}}
                 </div>
               {{/each}}
