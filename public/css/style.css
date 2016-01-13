@@ -34,23 +34,32 @@ header{
   margin: auto;
 }
 
+.title{
+  margin-left: 60px;
+}
+
 .container{
   min-height: 100%;
   background-color: white;
   width: 1024px;
   margin: auto;
-  padding-left: 47px;
-  padding-right: 47px;
+  padding: 0px;
+}
+
+.pokemonContainer{
+  width: 100%;
+  padding: 50px;
+  padding-top: 0px;
 }
 
 .pokeSquare{
   height: 238px;
   width: 216px;
+  margin: 6px;
   margin-bottom: 60px;
-  padding-left: 13px;
-  padding-right: 13px;
   background-color: #F2F1F1;
   border-radius: 10px;
+  display: inline-block;
 }
 
 .load{
@@ -65,14 +74,22 @@ header{
 }
 
 .buttonCentre{
+  margin: 0px;
   text-align: center;
   vertical-align: middle;
   line-height: 50px;
 }
 
+.image{
+  display: block;
+  height: 195px;
+}
+
 .typeContainer{
-  width: 100%;
   overflow: hidden;
+  display:block;
+  height: 22px;
+  width: 100%;
 }
 
 .typeRight{

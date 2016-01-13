@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ember Starter Kit</title>
+  <title>Pokédex</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/public/css/normalize.css">
@@ -14,22 +14,25 @@
     {{outlet}}
   </script>
 
-  <script type="text/x-handlebars" id="index">
+  <script type="text/x-handlebars" data-template-name='index'>
     <div class="container">
-      <h1 {{action 'showPokemon'}}>POKÉDEX</h1>
-      {{#each item in model}}
-        <div class="pokeSquare">
-          {{item.pkdx_id}}
-          {{item.name}}
-          <div class="typeContainer">
-            {{#each item.types as |type|}}
-              <div {{bind-attr class="type.name"}}>
-                <li>{{type.name}}</li>
-              </div>
-            {{/each}}
+      <h1 {{action 'showPokemon'}} class="title">POKÉDEX</h1>
+      <div class="pokemonContainer">
+        {{#each model as |item|}}
+          <div class="pokeSquare">
+            #00{{item.pkdx_id}}
+            {{item.name}}
+            <img class="image" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png">
+            <div class="typeContainer">
+              {{#each item.types as |type|}}
+                <div {{bind-attr class="type.name"}}>
+                  {{type.name}}
+                </div>
+              {{/each}}
+            </div>
           </div>
-        </div>
-      {{/each}}
+        {{/each}}
+      </div>
       <div class="load"><h4 class="buttonCentre">LOAD MORE</h4></div>
     </div>
   </script>
