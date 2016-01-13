@@ -16,8 +16,9 @@
   <script type="text/x-handlebars" id="index">
     <h1>Pokemon</h1>
     <ul>
-    <li>{{model}}</li>
-    {{#each model as |item|}}
+      <li>{{model}}</li>
+    {{#each item in model}}
+      <li>item</li>
       <li>{{item.pkdx_id}}</li>
       <li>{{item.name}}</li>
       {{#each item.types as |type|}}
