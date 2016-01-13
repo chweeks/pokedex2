@@ -10,25 +10,25 @@
 </head>
 <body>
   <script type="text/x-handlebars">
-    <header><img src="/public/images/pokeball.png"/>Pokédex</header>
-    <div class="container">
-      {{outlet}}
-    </div>
+    <header><div class="header"><img src="/public/images/pokeball.png"/>POKÉDEX</div></header>
+    {{outlet}}
   </script>
 
   <script type="text/x-handlebars" id="index">
-    <h1 {{action 'showPokemon'}}>Pokemon</h1>
-    <ul>
-      <li>{{model}}</li>
-      {{#each item in model}}
-        <li>item</li>
-        <li>{{item.pkdx_id}}</li>
-        <li>{{item.name}}</li>
-        {{#each item.types as |type|}}
-          <li>{{type.name}}</li>
+    <div class="container">
+      <h1 {{action 'showPokemon'}}>POKÉDEX</h1>
+      <ul>
+        <li>{{model}}</li>
+        {{#each item in model}}
+          <li>item</li>
+          <li>{{item.pkdx_id}}</li>
+          <li>{{item.name}}</li>
+          {{#each item.types as |type|}}
+            <li>{{type.name}}</li>
+          {{/each}}
         {{/each}}
-      {{/each}}
-    </ul>
+      </ul>
+    </div>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
