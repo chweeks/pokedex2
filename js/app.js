@@ -6,19 +6,29 @@ App.Router.map(function() {
 
 App.IndexRoute = Ember.Route.extend({
 
+  actions: {
+    showPokemon: function(){
+      alert('showPokemon');
+    }
+  },
+
   model: function() {
 
     var pokemonArray = [];
 
-    var pokemonRequest = function(i){
+    pokemonRequest = function(i){
       return $.getJSON("http://pokeapi.co/api/v1/pokemon/"+i.toString()+"/").then(function(response) {
         pokemonArray.push(response);
       });
     };
 
-    for(var i=1; i<17; i++){
-      pokemonRequest(i);
+    collectPokemon = function(noOfPokemon){
+      for(var i=1; i<noOfPokemon+1; i++){
+        pokemonRequest(i);
+      };
+      return pokemonArray
     };
-    return pokemonArray
+
+    return collectPokemon(16);
   }
 });
