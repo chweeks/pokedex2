@@ -25,11 +25,12 @@
             {{item.name}}
             <img class="image" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/{{unbound item.pkdx_id}}.png">
             <div class="typeContainer">
-              {{#each item.types as |type|}}
-                <div class="{{type.name}}">
-                  {{type.name}}
-                </div>
-              {{/each}}
+              <div class="{{item.types.[0].name}} typeLeft">
+                {{item.types.[0].name}}
+              </div>
+              <div class="{{item.types.[1].name}} typeRight">
+                {{item.types.[1].name}}
+              </div>
             </div>
           </div>
         {{/each}}

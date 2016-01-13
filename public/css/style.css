@@ -50,12 +50,14 @@ header{
   width: 100%;
   padding: 50px;
   padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .pokeSquare{
   height: 238px;
   width: 216px;
   margin: 6px;
+  margin-top: 0px;
   margin-bottom: 60px;
   background-color: #F2F1F1;
   border-radius: 10px;
