@@ -295,9 +295,45 @@ header{
   width: 100%;
   margin: right: 32px;
   border-radius: 10px;
-  padding: 24px;
-  padding-top: 42px;
+  padding: 42px;
+  padding-left: 24px;
+  padding-right: 24px;
   background-color: #D8D8D8
+}
+
+.barchartContainer{
+  width: 100%;
+  height: 100%;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.barContainer{
+  height: 100%;
+  width: 56px;
+  margin-right: 2.4px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.bar{
+  height:116px;
+  width:100%;
+  background-color: white;
+  position: relative;
+}
+
+.barKey{
+  text-align: center;
+  width:100%;
+}
+
+.barLevel{
+  width: 100%;
+  height: 25%;
+  background-color: #4A90E2;
+  position: absolute;
+  bottom: 0;
 }
 
 .leftStats{
