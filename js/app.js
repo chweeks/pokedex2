@@ -17,9 +17,26 @@ App.PokemonRoute = Ember.Route.extend({
 
 App.IndexRoute = Ember.Route.extend({
 
+  actions: {
+    updateModel: function() {
+      var noOfPokemon = this.currentModel.length;
+      var requireNoOfPokemon = noOfPokemon + 4;
+      for(var i=noOfPokemon; i<requireNoOfPokemon; i++){
+        pokemonRequest(i);
+      };
+    }
+  },
+
   model: function() {
 
     var pokemonArray = [];
+
+    collectPokemon = function(noOfPokemon){
+      for(var i=1; i<noOfPokemon+1; i++){
+        pokemonRequest(i);
+      };
+      return pokemonArray;
+    },
 
     toThreeDigits = function(pkdx_id) {
       return ("000"+pkdx_id).slice(-3);
@@ -34,13 +51,6 @@ App.IndexRoute = Ember.Route.extend({
                            {moves: movesArray.slice(5,10), colour: "#606C78"},
                            {moves: movesArray.slice(10,15), colour: "#BE93E7"},
                            {moves: movesArray.slice(15,20), colour: "#A0DA5E"}];
-    },
-
-    collectPokemon = function(noOfPokemon){
-      for(var i=1; i<noOfPokemon+1; i++){
-        pokemonRequest(i);
-      };
-      return pokemonArray;
     },
 
     pokemonRequest = function(i){
@@ -64,6 +74,7 @@ App.IndexRoute = Ember.Route.extend({
         pokemonArray.pushObject(response);
       });
     };
-    return collectPokemon(28);
-  }
+    return collectPokemon(16);
+  },
+
 });
