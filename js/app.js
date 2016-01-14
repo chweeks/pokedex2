@@ -7,6 +7,12 @@ App.Router.map(function() {
 
 App.PokemonRoute = Ember.Route.extend({
 
+  afterModel: function(posts, transitions) {
+    var descriptionUrl = posts.descriptions.pop().resource_uri;
+    return Ember.$.getJSON("http://pokeapi.co"+descriptionUrl).then(function(response) {
+      posts.summary = response.description;
+    });
+  }
 });
 
 App.IndexRoute = Ember.Route.extend({
@@ -16,19 +22,19 @@ App.IndexRoute = Ember.Route.extend({
     var pokemonArray = [];
 
     toThreeDigits = function(pkdx_id) {
-      return ('000'+pkdx_id).slice(-3)
+      return ('000'+pkdx_id).slice(-3);
     },
 
     dividebyTen = function(string) {
-    return ((parseInt(string))/10).toString()
-    }
+    return ((parseInt(string))/10).toString();
+    },
 
     pokemonRequest = function(i){
 
       return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+i.toString()+"/").then(function(response) {
-        response.pkdx_id = toThreeDigits(response.pkdx_id)
-        response.height = dividebyTen(response.height)
-        response.weight = dividebyTen(response.weight)
+        response.pkdx_id = toThreeDigits(response.pkdx_id);
+        response.height = dividebyTen(response.height);
+        response.weight = dividebyTen(response.weight);
         pokemonArray.pushObject(response);
       });
     };
@@ -37,7 +43,7 @@ App.IndexRoute = Ember.Route.extend({
       for(var i=1; i<noOfPokemon+1; i++){
         pokemonRequest(i);
       };
-      return pokemonArray
+      return pokemonArray;
     };
     return collectPokemon(16);
   }

@@ -66,26 +66,29 @@
           </div>
         </div>
       </div>
+      <div class="summary">
+        <p>{{model.summary}}</p>
+      </div>
     </div>
     <div class="statsContainer">
       <div class="generalstats">
         <div class="leftStats">
-          <h3 id="white">Height</h3>
-          <p class="bigP">{{model.height}}m</p>
+          <h3>Height</h3>
+          <p>{{model.height}}m</p>
 
-          <h3 id="white">Weight</h3>
-          <p class="bigP">{{model.weight}}kg</p>
+          <h3>Weight</h3>
+          <p>{{model.weight}}kg</p>
 
-          <h3 id="white">Gender</h3>
-          <p class="bigP">F/M</p>
+          <h3>Gender</h3>
+          <p>F/M</p>
         </div>
         <div class="rightStats">
-          <h3 id="white">Category</h3>
-          <p class="bigP">{{model.species}}</p>
+          <h3>Category</h3>
+          <p>{{model.species}}</p>
 
-          <h3 id="white">Abilities</h3>
+          <h3>Abilities</h3>
           {{#each model.abilities as |ability|}}
-            <p class="bigP" id="ability">{{ability.name}}</p>
+            <p id="ability">{{ability.name}}</p>
           {{/each}}
         </div>
       </div>
