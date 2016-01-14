@@ -15,8 +15,8 @@ App.IndexRoute = Ember.Route.extend({
 
     var pokemonArray = [];
 
-    toThreeDigits = function(string) {
-      return ('000'+string).slice(-3)
+    toThreeDigits = function(pkdx_id) {
+      return ('000'+pkdx_id).slice(-3)
     },
 
     dividebyTen = function(string) {

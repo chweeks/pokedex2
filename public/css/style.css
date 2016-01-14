@@ -331,6 +331,9 @@ header{
 .barLevel{
   width: 100%;
   height: 25%;
+  text-align: center;
+  font-weight: bold;
+  color: white;
   background-color: #4A90E2;
   position: absolute;
   bottom: 0;
