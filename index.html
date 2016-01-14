@@ -73,14 +73,10 @@
     <div class="statsContainer">
       <div class="generalstats">
         <div class="leftStats">
-          <h3>Height</h3>
-          <p>{{model.height}}m</p>
-
-          <h3>Weight</h3>
-          <p>{{model.weight}}kg</p>
-
-          <h3>Gender</h3>
-          <p>F/M</p>
+          {{#each model.generalStats as |stat|}}
+            <h3>{{stat.name}}</h3>
+            <p>{{stat.value}}m</p>
+          {{/each}}
         </div>
         <div class="rightStats">
           <h3>Category</h3>
@@ -95,72 +91,18 @@
       <div class="baseStats">
         <h3><strong>Base Stats</strong></h3>
         <div class="barchartContainer">
+          {{#each model.baseStats as |stat|}}
           <div class="barContainer">
             <div class="bar">
-              <div class="barLevel" style="height: {{model.hp}}px">
-                <p>{{model.hp}}</p>
+              <div class="barLevel" style="height: {{stat.value}}px">
+                <p>{{stat.value}}</p>
               </div>
             </div>
             <div class="barKey">
-              <p>HP</p>
+              <p>{{stat.name}}</p>
             </div>
           </div>
-          <div class="barContainer">
-            <div class="bar">
-              <div class="barLevel" style="height: {{model.attack}}px">
-                <p>{{model.attack}}</p>
-              </div>
-            </div>
-            <div class="barKey">
-              <p>Attack</p>
-            </div>
-          </div>
-          <div class="barContainer">
-            <div class="bar">
-              <div class="barLevel" style="height: {{model.defense}}px">
-                <p>{{model.defense}}</p>
-              </div>
-            </div>
-            <div class="barKey">
-              <p>Defense</p>
-            </div>
-          </div>
-          <div class="barContainer">
-            <div class="bar">
-              <div class="barLevel" style="height: {{model.sp_atk}}px">
-                <p>{{model.sp_atk}}</p>
-              </div>
-            </div>
-            <div class="barKey">
-              <p>
-                Special
-                Attack
-              </p>
-            </div>
-          </div>
-          <div class="barContainer">
-            <div class="bar">
-              <div class="barLevel" style="height: {{model.sp_def}}px">
-                <p>{{model.sp_def}}</p>
-              </div>
-            </div>
-            <div class="barKey">
-              <p>
-                Special
-                Defense
-              </p>
-            </div>
-          </div>
-          <div class="barContainer">
-            <div class="bar">
-              <div class="barLevel" style="height: {{model.speed}}px">
-                <p>{{model.speed}}</p>
-              </div>
-            </div>
-            <div class="barKey">
-              <p>Speed</p>
-            </div>
-          </div>
+          {{/each}}
         </div>
       </div>
     </div>

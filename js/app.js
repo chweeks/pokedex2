@@ -26,15 +26,24 @@ App.IndexRoute = Ember.Route.extend({
     },
 
     dividebyTen = function(string) {
-    return ((parseInt(string))/10).toString();
+      return ((parseInt(string))/10).toString();
     },
 
     pokemonRequest = function(i){
 
       return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+i.toString()+"/").then(function(response) {
         response.pkdx_id = toThreeDigits(response.pkdx_id);
-        response.height = dividebyTen(response.height);
-        response.weight = dividebyTen(response.weight);
+
+        response.generalStats = [{value: dividebyTen(response.height), name: 'Height'},
+                                 {value: dividebyTen(response.weight), name: 'Weight'},
+                                 {value: 'F/M', name: 'Gender'}]
+
+        response.baseStats = [{value: response.hp, name: 'HP'},
+                              {value: response.attack, name: 'Attack'},
+                              {value: response.defense, name: 'Defense'},
+                              {value: response.sp_atk, name: 'Special Attack'},
+                              {value: response.sp_def, name: 'Special Defense'},
+                              {value: response.speed, name: 'Speed'}]
         pokemonArray.pushObject(response);
       });
     };
