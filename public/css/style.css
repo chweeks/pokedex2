@@ -192,20 +192,35 @@ header{
 
 .pokemonName{
   text-align: center;
-  font-weight: normal;
   margin-top: 32px;
   margin-bottom: 32px;
 }
 
-.profile{
-  height: 496px;
+.profileContainer{
+  height: 620px;
   width: 510px;
   margin: 0px;
   margin-left: 32px;
   margin-right: 32px;
+  display: inline-block;
+}
+
+.profile{
+  height: 496px;
+  width: 100%;
+  margin-bottom: 25px;
   background-color: #F2F1F1;
   border-radius: 10px;
+  display: inline-flex;
+}
+
+.pokemonName > h1 {
+  margin: 0px;
   display: inline-block;
+}
+
+.pokemonName span {
+  font-size: 2em;
 }
 
 .profileImage{
@@ -232,4 +247,46 @@ header{
   font-size: 30px;
   text-transform: uppercase;
   border-radius: 0px 10px 0px 10px;
+}
+
+.summary{
+  width: 510px;
+}
+
+.baseStats{
+  height: 350px;
+  width: 418px;
+  margin-right: 32px;
+  vertical-align: top;
+  border-radius: 10px;
+  float: right;
+  background-color: #4A90E2;
+  display: inline-flex;
+}
+
+.leftStats{
+  margin: 58px;
+  margin-right: 80px;
+}
+
+.rightStats{
+  margin: 58px;
+  margin-left: 0px;
+  float: right;
+}
+
+#white{
+  margin: 0px;
+  color: white;
+}
+
+.bigP{
+  margin: 0px;
+  font-size: 24px;
+  margin-bottom: 35px;
+  text-transform: capitalize;
+}
+
+#ability{
+  margin-bottom: 0px;
 }

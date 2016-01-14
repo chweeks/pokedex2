@@ -19,7 +19,6 @@
   <script type="text/x-handlebars" data-template-name="index">
     <h1 {{action 'showPokemon'}} class="title">POKÉDEX</h1>
     <div class="pokemonContainer">
-      {{model}}
       {{#each model as |item|}}
         <div class="pokeSquare">
           #{{item.pkdx_id}}
@@ -49,20 +48,44 @@
       </div>
     </div>
 
-  <h1 class="pokemonName">
-    #{{model.pkdx_id}} {{model.name}}
-  </h1>
-  <div class="profile">
-    <div class="profileTypeContainer">
-      <img class="profileImage" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{unbound model.pkdx_id}}.png">
-      <div class="{{model.types.[0].name}} profileTypeLeft">
-        {{model.types.[0].name}}
-      </div>
-      <div class="{{model.types.[1].name}} profileTypeRight">
-        {{model.types.[1].name}}
+    <div class="pokemonName">
+      <span>#{{model.pkdx_id}} </span>
+      <h1>{{model.name}}</h1>
+    </div>
+    <div class="profileContainer">
+      <div class="profile">
+        <div class="profileTypeContainer">
+          <img class="profileImage" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{unbound model.pkdx_id}}.png">
+          <div class="{{model.types.[0].name}} profileTypeLeft">
+            {{model.types.[0].name}}
+          </div>
+          <div class="{{model.types.[1].name}} profileTypeRight">
+            {{model.types.[1].name}}
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+    <div class="baseStats">
+      <div class="leftStats">
+        <h3 id="white">Height</h3>
+        <p class="bigP">{{model.height}}m</p>
+
+        <h3 id="white">Weight</h3>
+        <p class="bigP">{{model.weight}}kg</p>
+
+        <h3 id="white">Gender</h3>
+        <p class="bigP">F/M</p>
+      </div>
+      <div class="rightStats">
+        <h3 id="white">Category</h3>
+        <p class="bigP">{{model.species}}</p>
+
+        <h3 id="white">Abilities</h3>
+        {{#each model.abilities as |ability|}}
+          <p class="bigP" id="ability">{{ability.name}}</p>
+        {{/each}}
+      </div>
+    </div>
 
   </script>
 

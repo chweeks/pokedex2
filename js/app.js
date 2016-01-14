@@ -11,12 +11,6 @@ App.PokemonRoute = Ember.Route.extend({
 
 App.IndexRoute = Ember.Route.extend({
 
-  actions: {
-    showPokemon: function(){
-      alert('showPokemon');
-    }
-  },
-
   model: function() {
 
     var pokemonArray = [];
@@ -25,10 +19,16 @@ App.IndexRoute = Ember.Route.extend({
       return ('000'+string).slice(-3)
     },
 
+    dividebyTen = function(string) {
+    return ((parseInt(string))/10).toString()
+    }
+
     pokemonRequest = function(i){
 
       return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+i.toString()+"/").then(function(response) {
         response.pkdx_id = toThreeDigits(response.pkdx_id)
+        response.height = dividebyTen(response.height)
+        response.weight = dividebyTen(response.weight)
         pokemonArray.pushObject(response);
       });
     };
