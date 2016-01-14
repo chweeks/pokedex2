@@ -18,18 +18,12 @@ App.PokemonRoute = Ember.Route.extend({
 App.IndexRoute = Ember.Route.extend({
 
   actions: {
-    loadMore: function() {
-      var noOfPokemon = this.currentModel.length;
-      var requireNoOfPokemon = noOfPokemon + 4;
-      for(var i=noOfPokemon; i<requireNoOfPokemon; i++){
-        pokemonRequest(i);
-      };
 
-      $(window).bind("scroll", function() {
-        if($(window).scrollTop() + $(window).height() == $(document).height()) {
-          loadMore();
-        }
-      });
+    loadMore: function() {
+      var nextPokemon= this.currentModel.length + 1;
+      var totalPokemon = nextPokemon + 3;
+      $(".load").hide();
+      infiniteScroll(nextPokemon, totalPokemon)
     }
   },
 
@@ -37,8 +31,18 @@ App.IndexRoute = Ember.Route.extend({
 
     var pokemonArray = [];
 
-    collectPokemon = function(noOfPokemon){
-      for(var i=1; i<noOfPokemon+1; i++){
+    infiniteScroll = function(nextPokemon, totalPokemon) {
+      $(window).bind("scroll", function() {
+        if($(window).scrollTop() + $(window).height() == $(document).height()) {
+          collectPokemon(nextPokemon, totalPokemon)
+          nextPokemon += 4;
+          totalPokemon +=4;
+        }
+      });
+    }
+
+    collectPokemon = function(currentPokemon, reqPokemon){
+      for(var i=currentPokemon; i<reqPokemon+1; i++){
         pokemonRequest(i);
       };
       return pokemonArray;
@@ -80,6 +84,6 @@ App.IndexRoute = Ember.Route.extend({
         pokemonArray.pushObject(response);
       });
     };
-    return collectPokemon(16);
+    return collectPokemon(1, 16);
   }
 });
