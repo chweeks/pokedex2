@@ -15,6 +15,10 @@ h1{
   margin-bottom: 54px;
 }
 
+h3{
+  margin:0px;
+}
+
 h4{
   font-weight: bold;
 }
@@ -39,7 +43,7 @@ header{
 }
 
 .container{
-  min-height: 100%;
+  min-height: 100vh;
   background-color: white;
   width: 1024px;
   margin: auto;
@@ -84,7 +88,7 @@ header{
 
 .image{
   display: block;
-  height: 195px;
+  height: 185px;
 }
 
 .typeContainer{
@@ -105,8 +109,8 @@ header{
 
 .bug{
   background-color: #A0DA5E;
-  width: 108px;
-  height: 22px;
+  width: 50%;
+  height: 100%;
   float: left;
   text-align: center;
 }
@@ -196,6 +200,12 @@ header{
   margin-bottom: 32px;
 }
 
+.pokeId{
+  padding-left: 6px;
+  padding-top: 6px;
+  text-align: left;
+}
+
 .profileContainer{
   height: 620px;
   width: 510px;
@@ -221,6 +231,15 @@ header{
 
 .pokemonName span {
   font-size: 2em;
+}
+
+.pokeId > h4 {
+  margin: 0px;
+  display: inline-block;
+}
+
+.pokeId span {
+  font-size: 18px;
 }
 
 .profileImage{
@@ -253,15 +272,32 @@ header{
   width: 510px;
 }
 
-.baseStats{
-  height: 350px;
+.statsContainer{
+  height: 620px;
   width: 418px;
-  margin-right: 32px;
+  margin: 0px;
   vertical-align: top;
+  display: inline-block;
+}
+
+.generalstats{
+  height: 350px;
+  width: 100%;
+  margin-right: 32px;
+  margin-bottom: 32px;
   border-radius: 10px;
-  float: right;
   background-color: #4A90E2;
   display: inline-flex;
+}
+
+.baseStats{
+  height: 250px;
+  width: 100%;
+  margin: right: 32px;
+  border-radius: 10px;
+  padding: 24px;
+  padding-top: 42px;
+  background-color: #D8D8D8
 }
 
 .leftStats{
