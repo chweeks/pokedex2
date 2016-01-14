@@ -36,6 +36,13 @@ App.IndexRoute = Ember.Route.extend({
                            {moves: movesArray.slice(15,20), colour: "#A0DA5E"}];
     },
 
+    collectPokemon = function(noOfPokemon){
+      for(var i=1; i<noOfPokemon+1; i++){
+        pokemonRequest(i);
+      };
+      return pokemonArray;
+    },
+
     pokemonRequest = function(i){
 
       return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+i.toString()+"/").then(function(response) {
@@ -57,13 +64,6 @@ App.IndexRoute = Ember.Route.extend({
         pokemonArray.pushObject(response);
       });
     };
-
-    collectPokemon = function(noOfPokemon){
-      for(var i=1; i<noOfPokemon+1; i++){
-        pokemonRequest(i);
-      };
-      return pokemonArray;
-    };
-    return collectPokemon(16);
+    return collectPokemon(28);
   }
 });

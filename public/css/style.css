@@ -162,6 +162,22 @@ header{
   text-align: center;
 }
 
+.electric{
+  background-color: #FFFF33;
+  width: 50%;
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+
+.ground{
+  background-color: #CC9966;
+  width: 50%;
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+
 /*single pokemon page*/
 
 .navContainer{
