@@ -74,8 +74,8 @@ header{
   text-align: center;
   height:50px;
   width: 250px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  padding-top: 15px;
   margin-bottom: 60px;
 }
 
@@ -83,7 +83,6 @@ header{
   margin: 0px;
   text-align: center;
   vertical-align: middle;
-  line-height: 50px;
 }
 
 .image{
@@ -283,6 +282,7 @@ header{
   height: 620px;
   width: 418px;
   margin: 0px;
+  margin-bottom: 32px;
   vertical-align: top;
   display: inline-block;
 }
@@ -371,4 +371,51 @@ header{
 
 #ability{
   margin-bottom: 0px;
+}
+
+.movesContainer > h3{
+  margin-left: 34px;
+  margin-bottom: 20px;
+}
+
+.movesContainer{
+  margin: 0px;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+.movesColumn{
+  width: 212px;
+  height: 272px;
+  margin-left: 34px;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.move{
+  width: 100%;
+  height: 36px;
+  margin-bottom: 23px;
+  border-radius: 10px;
+  padding-top: 8px;
+  text-align: center;
+}
+
+.move > p {
+  font-size: 18px;
+}
+
+.explore{
+  background-color: #E85B0E;
+  color: black;
+  border-radius: 10px;
+  text-align: center;
+  height:50px;
+  width: 260px;
+  padding-top: 15px;
+  font-weight: bold;
+  margin: auto;
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
