@@ -99,85 +99,85 @@ header{
 .typeRight{
   text-transform: uppercase;
   border-radius: 10px 0px 10px 0px;
+  width: 50%;
+  height: 100%;
+  float: left;
+  text-align: center;
 }
 
 .typeLeft{
   text-transform: uppercase;
   border-radius: 0px 10px 0px 10px;
-}
-
-.bug{
-  background-color: #A0DA5E;
   width: 50%;
   height: 100%;
   float: left;
   text-align: center;
+}
+
+/*type colours*/
+.bug{
+  background-color: #A0DA5E;
 }
 
 .grass{
   background-color: #A0DA5E;
-  width: 50%;
-  height: 100%;
-  float: left;
-  text-align: center;
 }
 
 .poison{
   background-color: #BE93E7;
-  width: 50%;
-  height: 100%;
-  float: left;
-  text-align: center;
 }
 
 .fire{
   background-color: #E85B0E;
-  width: 50%;
-  height: 100%;
-  float: left;
-  text-align: center;
 }
 
 .water{
   background-color: #4A90E2;
-  width: 50%;
-  height: 100%;
-  float: left;
-  text-align: center;
 }
 
 .flying{
-  background-color: #D8D8D8;
-  width: 50%;
-  height: 100%;
-  float: left;
-  text-align: center;
+  background-color: #7EC0EE;
 }
 
 .normal{
   background-color: #D8D8D8;
-  width: 50%;
-  height: 100%;
-  float: left;
-  text-align: center;
 }
 
 .electric{
   background-color: #FFFF33;
-  width: 50%;
-  height: 100%;
-  float: left;
-  text-align: center;
 }
 
 .ground{
   background-color: #CC9966;
-  width: 50%;
-  height: 100%;
-  float: left;
-  text-align: center;
 }
 
+.rock{
+  background-color: #8C5C2E;
+}
+
+.psychic{
+  background-color: #A020F0;
+}
+
+.fairy{
+  background-color: #FFC3E1;
+}
+
+.fighting{
+  background-color: #FFB732;
+}
+
+.ghost{
+  background-color: #9D95AD;
+}
+
+.steel{
+  background-color: #B0C4DE;
+}
+
+.ice{
+  background-color: #BBFFFF;
+}
 /*single pokemon page*/
 
 .navContainer{
@@ -274,6 +274,10 @@ header{
   font-size: 30px;
   text-transform: uppercase;
   border-radius: 10px 0px 10px 0px;
+  width: 50%;
+  height: 100%;
+  float: left;
+  text-align: center;
 }
 
 .profileTypeLeft{
@@ -281,6 +285,10 @@ header{
   font-size: 30px;
   text-transform: uppercase;
   border-radius: 0px 10px 0px 10px;
+  width: 50%;
+  height: 100%;
+  float: left;
+  text-align: center;
 }
 
 
@@ -383,6 +391,18 @@ header{
   margin: 58px;
   margin-left: 0px;
   float: right;
+}
+
+.rightStats > h3{
+  margin: 0px;
+  color: white;
+}
+
+.rightStats > p{
+  margin: 0px;
+  font-size: 24px;
+  margin-bottom: 35px;
+  text-transform: capitalize;
 }
 
 #ability{

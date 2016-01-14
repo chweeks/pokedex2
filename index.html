@@ -40,7 +40,7 @@
       {{/each}}
     </div>
     <div class="load">
-      <h4 class="buttonCentre" {{action "updateModel"}}>LOAD MORE</h4>
+      <h4 class="buttonCentre" {{action "loadMore"}}>LOAD MORE</h4>
     </div>
   </script>
 
@@ -77,7 +77,7 @@
         <div class="leftStats">
           {{#each model.generalStats as |stat|}}
             <h3>{{stat.name}}</h3>
-            <p>{{stat.value}}m</p>
+            <p>{{stat.value}}</p>
           {{/each}}
         </div>
         <div class="rightStats">
@@ -132,6 +132,7 @@
   <script src="js/libs/ember-template-compiler-2.0.1.js"></script>
   <script src="js/libs/ember-2.0.1.debug.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/infiniteScroll.js"></script>
   <!-- to activate the test runner, add the "?test" query string parameter -->
   <script src="tests/runner.js"></script>
 </body>
