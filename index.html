@@ -82,8 +82,11 @@
         </div>
         <div class="rightStats">
           <h3>Category</h3>
-          <p>{{model.species}}</p>
-
+          {{#if model.species}}
+            <p>{{model.species}}</p>
+          {{else}}
+            <p>Unknown</p>
+          {{/if}}
           <h3>Abilities</h3>
           {{#each model.abilities as |ability|}}
             <p id="ability">{{ability.name}}</p>
@@ -132,7 +135,6 @@
   <script src="js/libs/ember-template-compiler-2.0.1.js"></script>
   <script src="js/libs/ember-2.0.1.debug.js"></script>
   <script src="js/app.js"></script>
-  <script src="js/infiniteScroll.js"></script>
   <!-- to activate the test runner, add the "?test" query string parameter -->
   <script src="tests/runner.js"></script>
 </body>

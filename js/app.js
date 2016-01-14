@@ -35,7 +35,7 @@ App.IndexRoute = Ember.Route.extend({
       $(window).bind("scroll", function() {
         if($(window).scrollTop() + $(window).height() == $(document).height()) {
           collectPokemon(nextPokemon, totalPokemon)
-          nextPokemon += 4;
+          nextPokemon +=4;
           totalPokemon +=4;
         }
       });
@@ -68,8 +68,10 @@ App.IndexRoute = Ember.Route.extend({
       return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+i.toString()+"/").then(function(response) {
         response.pkdx_id = toThreeDigits(response.pkdx_id);
 
-        response.generalStats = [{value: dividebyTen(response.height)+'m', name: "Height"},
-                                 {value: dividebyTen(response.weight)+'Kg', name: "Weight"},
+        response.generalStats = [{value: dividebyTen(response.height)+'m',
+                                  name: "Height"},
+                                 {value: dividebyTen(response.weight)+'Kg',
+                                  name: "Weight"},
                                  {value: "F/M", name: "Gender"}]
 
         response.baseStats = [{value: response.hp, name: "HP"},
