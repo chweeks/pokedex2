@@ -11,6 +11,8 @@ App.PokemonRoute = Ember.Route.extend({
 
     toThreeDigits = function(pkdx_id) {
       if(pkdx_id == "000"){return "151"}
+      if(pkdx_id == "152"){return "001"}
+
       return ("000"+pkdx_id).slice(-3);
     },
 
