@@ -53,9 +53,11 @@
 
   <script type="text/x-handlebars" data-template-name="pokemon">
     <div class="navContainer">
-      <div class="leftNav"></div>
-      <div class="rightNav">
-        <h3 class="navTitle">{{model.name}}</h3>
+      <div class="leftNav" {{action "previousPokemon"}}>
+        <h3 class="navTitle">#{{model.previousPokemon}} {{model.name}}</h3>
+      </div>
+      <div class="rightNav" {{action "nextPokemon"}}>
+        <h3 class="navTitle">#{{model.nextPokemon}} {{model.name}}</h3>
       </div>
     </div>
 
