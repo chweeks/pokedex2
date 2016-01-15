@@ -10,6 +10,7 @@ App.PokemonRoute = Ember.Route.extend({
   model: function(pokemon, transitions) {
 
     toThreeDigits = function(pkdx_id) {
+      if(pkdx_id == "000"){return "151"}
       return ("000"+pkdx_id).slice(-3);
     },
 
@@ -26,33 +27,41 @@ App.PokemonRoute = Ember.Route.extend({
 
     pokemonRequest = function() {
       newPokemonId = parseInt(pokemon.pkdx_id);
-      return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+newPokemonId+"/").then(function(response){
-        response.previousPokemon = toThreeDigits(response.national_id-1);
-        response.nextPokemon = toThreeDigits(response.national_id+1);
-        response.pkdx_id = toThreeDigits(response.pkdx_id);
+      return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+newPokemonId+"/").then(function(pageData){
+        pageData.previousPokemonId = toThreeDigits(pageData.national_id-1);
+        pageData.nextPokemonId = toThreeDigits(pageData.national_id+1);
+        pageData.pkdx_id = toThreeDigits(pageData.pkdx_id);
 
-        response.generalStats = [{value: dividebyTen(response.height)+'m',
+        pageData.generalStats = [{value: dividebyTen(pageData.height)+'m',
                                   name: "Height"},
-                                 {value: dividebyTen(response.weight)+'Kg',
+                                 {value: dividebyTen(pageData.weight)+'Kg',
                                   name: "Weight"},
                                  {value: "F/M", name: "Gender"}]
 
-        response.baseStats = [{value: response.hp, name: "HP"},
-                              {value: response.attack, name: "Attack"},
-                              {value: response.defense, name: "Defense"},
-                              {value: response.sp_atk, name: "Special Attack"},
-                              {value: response.sp_def, name: "Special Defense"},
-                              {value: response.speed, name: "Speed"}]
+        pageData.baseStats = [{value: pageData.hp, name: "HP"},
+                              {value: pageData.attack, name: "Attack"},
+                              {value: pageData.defense, name: "Defense"},
+                              {value: pageData.sp_atk, name: "Special Attack"},
+                              {value: pageData.sp_def, name: "Special Defense"},
+                              {value: pageData.speed, name: "Speed"}]
 
-        response.moveGroups = createMoveGroups(response.moves);
+        pageData.moveGroups = createMoveGroups(pageData.moves);
 
-        var descriptionUrl = response.descriptions.pop().resource_uri;
-        return Ember.$.getJSON("http://pokeapi.co"+descriptionUrl).then(function(description){
-          response.summary = description.description;
+        return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+pageData.previousPokemonId).then(function(prevPokemon) {
+          pageData.previousPokemon = prevPokemon.name;
+          pageData.previousPokemonLink = pageData.previousPokemonId
 
-          console.log(response);
-          return response;
-        })
+          return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+pageData.nextPokemonId).then(function(nexPokemon) {
+            pageData.nextPokemon = nexPokemon.name;
+            pageData.nextPokemonLink = pageData.nextPokemonId
+
+            var descriptionUrl = pageData.descriptions.pop().resource_uri;
+            return Ember.$.getJSON("http://pokeapi.co"+descriptionUrl).then(function(description){
+              pageData.summary = description.description;
+              return pageData;
+            })
+          });
+        });
       })
     }
     return pokemonRequest();
@@ -93,6 +102,7 @@ App.IndexRoute = Ember.Route.extend({
     },
 
     toThreeDigits = function(pkdx_id) {
+      if(pkdx_id == '000'){return '151'}
       return ("000"+pkdx_id).slice(-3);
     },
 
@@ -109,28 +119,40 @@ App.IndexRoute = Ember.Route.extend({
 
     pokemonRequest = function(i){
 
-      return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+i.toString()+"/").then(function(response) {
-        response.pkdx_id = toThreeDigits(response.pkdx_id);
+      return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+i.toString()).then(function(pageData) {
+        pageData.previousPokemonId = toThreeDigits(pageData.national_id-1);
+        pageData.nextPokemonId = toThreeDigits(pageData.national_id+1);
+        pageData.pkdx_id = toThreeDigits(pageData.pkdx_id);
 
-        response.generalStats = [{value: dividebyTen(response.height)+'m',
+        pageData.generalStats = [{value: dividebyTen(pageData.height)+'m',
                                   name: "Height"},
-                                 {value: dividebyTen(response.weight)+'Kg',
+                                 {value: dividebyTen(pageData.weight)+'Kg',
                                   name: "Weight"},
                                  {value: "F/M", name: "Gender"}]
 
-        response.baseStats = [{value: response.hp, name: "HP"},
-                              {value: response.attack, name: "Attack"},
-                              {value: response.defense, name: "Defense"},
-                              {value: response.sp_atk, name: "Special Attack"},
-                              {value: response.sp_def, name: "Special Defense"},
-                              {value: response.speed, name: "Speed"}]
+        pageData.baseStats = [{value: pageData.hp, name: "HP"},
+                              {value: pageData.attack, name: "Attack"},
+                              {value: pageData.defense, name: "Defense"},
+                              {value: pageData.sp_atk, name: "Special Attack"},
+                              {value: pageData.sp_def, name: "Special Defense"},
+                              {value: pageData.speed, name: "Speed"}]
 
-        response.moveGroups = createMoveGroups(response.moves);
+        pageData.moveGroups = createMoveGroups(pageData.moves);
 
-        var descriptionUrl = response.descriptions.pop().resource_uri;
-        return Ember.$.getJSON("http://pokeapi.co"+descriptionUrl).then(function(description){
-          response.summary = description.description;
-          pokemonArray.pushObject(response);
+        return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+pageData.previousPokemonId).then(function(prevPokemon) {
+          pageData.previousPokemon = prevPokemon.name;
+          pageData.previousPokemonLink = pageData.previousPokemonId
+
+          return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+pageData.nextPokemonId).then(function(nexPokemon) {
+            pageData.nextPokemon = nexPokemon.name;
+            pageData.nextPokemonLink = pageData.nextPokemonId
+
+            var descriptionUrl = pageData.descriptions.pop().resource_uri;
+            return Ember.$.getJSON("http://pokeapi.co"+descriptionUrl).then(function(description){
+              pageData.summary = description.description;
+              pokemonArray.pushObject(pageData);
+            })
+          });
         });
       });
     };

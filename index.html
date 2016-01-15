@@ -53,12 +53,16 @@
 
   <script type="text/x-handlebars" data-template-name="pokemon">
     <div class="navContainer">
-      <div class="leftNav" {{action "previousPokemon"}}>
-        <h3 class="navTitle">#{{model.previousPokemon}} {{model.name}}</h3>
-      </div>
-      <div class="rightNav" {{action "nextPokemon"}}>
-        <h3 class="navTitle">#{{model.nextPokemon}} {{model.name}}</h3>
-      </div>
+        <div class="leftNav" >
+          <a href src="/#/152">
+            <h3 class="navTitle">#{{model.previousPokemonId}} {{model.previousPokemon}}</h3>
+          </a>
+        </div>
+      <a href src="/{{model.nextPokemonLink}}">
+        <div class="rightNav">
+          <h3 class="navTitle">#{{model.nextPokemonId}} {{model.nextPokemon}}</h3>
+        </div>
+      </a>
     </div>
 
     <div class="pokemonName">
@@ -68,7 +72,7 @@
     <div class="profileContainer">
       <div class="profile">
         <div class="profileTypeContainer">
-          <img class="profileImage" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{unbound model.pkdx_id}}.png">
+          <img class="profileImage" src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{model.pkdx_id}}.png">
           <div class="{{model.types.[0].name}} profileTypeLeft">
             {{model.types.[0].name}}
           </div>
