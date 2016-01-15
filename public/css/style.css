@@ -38,6 +38,11 @@ header{
   margin: auto;
 }
 
+.banner{
+  margin-left: 10px;
+  display: inline-block;
+}
+
 .title{
   margin-left: 60px;
 }
