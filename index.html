@@ -11,12 +11,14 @@
 <body>
   <script type="text/x-handlebars">
     <header>
-      <div class="header">
-        <img src="/public/images/pokeball.png"/>
-        <div class="banner">
-          POKÉDEX
+      <a href="/">
+        <div class="header">
+          <img src="/public/images/pokeball.png"/>
+          <div class="banner">
+            POKÉDEX
+          </div>
         </div>
-      </div>
+      </a>
     </header>
     <div class="container">
       {{outlet}}
@@ -32,9 +34,9 @@
             <span>#{{item.pkdx_id}}</span>
             <h4>{{item.name}}</h4>
           </div>
-          {{#link-to "pokemon" item}}
+          <a href="/#/{{item.pkdx_id}}">
             <img class="image" src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/{{unbound item.pkdx_id}}.png">
-          {{/link-to}}
+          </a>
           <div class="typeContainer">
             <div class="{{item.types.[0].name}} typeLeft">
               {{item.types.[0].name}}
