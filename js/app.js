@@ -57,14 +57,14 @@ App.PokemonRoute = Ember.Route.extend({
             pokemon.nextPokemon = nexPokemon.name;
             pokemon.nextPokemonLink = pokemon.nextPokemonId
 
-            var descriptionUrl = pokemon.descriptions.pop().resource_uri;
-            return Ember.$.getJSON("http://pokeapi.co"+descriptionUrl).then(function(description){
-              pokemon.summary = description.description;
-              return pokemon;
+              var descriptionUrl = pokemon.descriptions.pop().resource_uri;
+              return Ember.$.getJSON("http://pokeapi.co"+descriptionUrl).then(function(description){
+                pokemon.summary = description.description;
+                return pokemon;
+              });
             })
           });
         });
-      })
     }
     return pokemonRequest();
   }
@@ -76,7 +76,7 @@ App.IndexRoute = Ember.Route.extend({
 
     loadMore: function() {
       var nextPokemon= this.currentModel.length + 1;
-      var totalPokemon = nextPokemon + 3;
+      var totalPokemon = nextPokemon + 15;
       $(".load").hide();
       infiniteScroll(nextPokemon, totalPokemon)
     }
@@ -90,8 +90,8 @@ App.IndexRoute = Ember.Route.extend({
       $(window).bind("scroll", function() {
         if($(window).scrollTop() + $(window).height() == $(document).height()) {
           collectPokemon(nextPokemon, totalPokemon)
-          nextPokemon +=4;
-          totalPokemon +=4;
+          nextPokemon +=16;
+          totalPokemon +=16;
         }
       });
     },
@@ -111,8 +111,10 @@ App.IndexRoute = Ember.Route.extend({
     pokemonRequest = function(i){
 
       return Ember.$.getJSON("http://pokeapi.co/api/v1/pokemon/"+i.toString()).then(function(pokemonData) {
-        pokemonData.pkdx_id = toThreeDigits(pokemonData.pkdx_id);
-        pokemonArray.pushObject(pokemonData);
+        Ember.run(function() {
+          pokemonData.pkdx_id = toThreeDigits(pokemonData.pkdx_id);
+          pokemonArray.pushObject(pokemonData);
+        });
       });
     };
     return collectPokemon(1, 16);
